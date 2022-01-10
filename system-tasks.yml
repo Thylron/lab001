@@ -1,0 +1,6 @@
+---
+- name: System tasks
+  hosts: srv-dependencytrack
+  roles:
+    - role: system_upgrade
+ 
