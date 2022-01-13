@@ -27,3 +27,7 @@
 
 ansible-playbook -i inventaire.ini --user ansible-user --become --ask-become-pass system-tasks.yml
 
+### Install Docker
+
+ansible-playbook -i inventaire.ini --user ansible-user --become --ask-become-pass docker-installation.yml
+

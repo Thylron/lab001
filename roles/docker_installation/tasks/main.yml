@@ -1,0 +1,46 @@
+---
+# This role will install Docker
+# Source : https://docs.docker.com/engine/install/centos/
+
+- name: Install of required packages (Extra Packages for Enterprise Linux (EPEL) and yum-utils).
+  yum:
+    name:
+      - epel-release
+      - yum-utils
+    state: latest
+
+- name: Add the official Docker repository (Community Edition)
+  yum_repository:
+    file: docker-ce
+    name: docker-ce-stable
+    description: Docker CE Stable
+    baseurl: https://download.docker.com/linux/centos/$releasever/$basearch/stable
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://download.docker.com/linux/centos/gpg
+    state: present
+
+- name: Install Docker
+  yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose
+    state: latest
+    
+- name: Configure Docker daemon to avoid freezes during pull
+  blockinfile:
+    path: /etc/docker/daemon.json
+    create: yes
+    marker: "{mark}"
+    marker_begin: "{"
+    marker_end: "}"
+    block : |
+      "max-concurrent-downloads": 1
+
+- name: Enable and start Docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes

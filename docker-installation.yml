@@ -1,0 +1,5 @@
+---
+- name: Docker Installation
+  hosts: srv-dependencytrack
+  roles:
+    - role: docker_installation
