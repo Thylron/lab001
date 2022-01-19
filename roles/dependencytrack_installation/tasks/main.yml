@@ -1,0 +1,10 @@
+---
+# This role will install Dependecy Track with Docker Image.
+
+#- name: Downloads the latest Docker Compose file
+#  get_url:
+#    url: https://dependencytrack.org/docker-compose.yml
+#    dest: ./docker-compose.yml
+
+- name: Starts the stack using Docker Compose
+  ansible.builtin.shell: docker-compose up -d

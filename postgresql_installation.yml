@@ -1,0 +1,5 @@
+---
+- name: PostgreSQL installation
+  hosts: srv-dependencytrack
+  roles:
+    - role: postgresql_installation

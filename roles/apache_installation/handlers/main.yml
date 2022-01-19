@@ -1,0 +1,8 @@
+---
+
+# This task will restart Apache
+
+- name: "apache restart"
+  service:
+    name: "httpd"
+    state: "restarted"

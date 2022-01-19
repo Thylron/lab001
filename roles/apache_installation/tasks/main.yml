@@ -1,0 +1,13 @@
+---
+# This role will install apache
+
+- name: Upgrade all packages
+  yum:
+    name: "httpd"
+    state: latest
+    
+- name: Apache service activation
+  service:
+    name: "httpd"
+    state: "started"
+    enabled: yes

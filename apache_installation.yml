@@ -1,0 +1,5 @@
+---
+- name: Apache Installation
+  hosts: srv-dependencytrack
+  roles:
+    - role: apache_installation

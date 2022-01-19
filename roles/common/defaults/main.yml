@@ -1,0 +1,15 @@
+---
+
+# Dependency Track database name
+db_name: "dtrackdb"
+
+# Dependency Track database user name
+db_user: "dtrackdbbuser" 
+
+# Dependency Track database user password
+db_pwd: "TODO VAULT"
+
+# Packages versions
+httpd_version: "2.4.6"
+docker_version: "TODO"
+postgresql_version: "14"

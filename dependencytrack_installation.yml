@@ -1,0 +1,6 @@
+---
+- name: Dependency Track Installation
+  hosts: srv-dependencytrack
+  roles:
+    - role: dependencytrack_installation
+    
